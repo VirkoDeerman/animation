@@ -39,10 +39,13 @@ class String:
             self.__forwards = not self.__forwards
         string[self.pos] = 'O'
         return ''.join(i for i in string)
+    
 
+if __name__ == '__main__':
+    a: String = String()
 
-how_long: int = int(input('How long do you want for animation to play in seconds?\n> '))
-print()
-for i in range(how_long * 10):
-    print('\r' + a.string, end='')
-    sleep(0.1)
+    how_long: int = int(input('How long do you want for animation to play in seconds?\n> '))
+    print()
+    for i in range(how_long * 10):
+        print('\r' + a.string, end='')
+        sleep(0.1)
