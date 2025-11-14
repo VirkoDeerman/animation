@@ -2,11 +2,14 @@ from time import sleep
 from copy import deepcopy
 
 class String:
-	def __init__(self, pos: int):
-		self.__len:			  int = 20
-		self.__string:	list[str] = list('-' * self.__len)
-		self.forwards:		 bool = True
-		self.__pos:			  int = pos
+	def __init__(self, length: int):
+		if length > 0:
+			self.length:	  int = length
+		else:
+			self.length:	  int = 20
+		self.__string:	list[str] = list('-' * self.length)
+		self.__forwards:	 bool = True
+		self.__pos:			  int = 0
         
 	@property
 	def pos(self) -> int:
@@ -14,27 +17,31 @@ class String:
 		return self.__pos
 
 	@pos.setter
-	def pos(self, pos) -> None:
-		self.__pos = pos
+	def pos(self, pos: int) -> None:
+		if:
+			self.__pos = 
+		else:
+			self.__pos = pos
        
 	@property
 	def step(self) -> int:
-		return 1 if self.forwards else -1
+		return 1 if self.__forwards else -1
 
 	@property
 	def string(self) -> str:
 		string = deepcopy(self.__string)
 		below_zero = self.__pos + self.step < 0
-		too_far = self.__pos + self.step >= self.__len
+		too_far = self.__pos + self.step >= self.length
 		if below_zero or too_far:
-			self.forwards = not self.forwards
+			self.__forwards = not self.__forwards
 		string[self.pos] = 'Ø'
 		return ''.join(i for i in string)
 
 
-a: String = String(pos = 0)
+a: String = String(length = 20)
 
 
-for i in range(50):
+how_long: int(print('How long do you want for animation to play in seconds?\n> '))
+for i in range(how_long * 10):
 	print('\r' + a.string, end = '')
 	sleep(0.1)
